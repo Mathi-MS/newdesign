@@ -207,7 +207,7 @@ export const WebServices = () => {
                 mb: { xs: 2, md: 2 },
               }}
             >
-              Services
+              Our Expertise
             </Button>
             <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2, mt: 2 }}>
               Powering Your Vision with Expert Digital Services

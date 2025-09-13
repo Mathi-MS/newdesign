@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   AppBar,
@@ -18,6 +18,7 @@ import { images } from "../assets/Images/Images"; // Adjust path as needed
 
 export const WebHeader: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+  const [elevate, setElevate] = useState<boolean>(false);
 
   const navItems: string[] = ["Home", "About Us", "Services", "Pricing", "Contact"];
 
@@ -29,13 +30,37 @@ export const WebHeader: React.FC = () => {
     setDrawerOpen(false);
   };
 
+  // Scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setElevate(true);
+      } else {
+        setElevate(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       {/* Top AppBar */}
       <AppBar
         position="sticky"
-        elevation={0}
-        sx={{ p: "5px 0px", backgroundColor: "#fff" }}
+        elevation={elevate ? 4 : 0}
+        sx={{
+          p: "5px 0px",
+          backgroundColor: "#fff",
+          boxShadow: elevate
+            ? "rgba(0, 0, 0, 0.24) 0px 3px 8px"
+            : "none",
+          transition: "box-shadow 0.3s ease",
+        }}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Logo */}
@@ -117,7 +142,6 @@ export const WebHeader: React.FC = () => {
           }}
           role="presentation"
         >
-          {/* Logo and Close Button */}
           <Box
             sx={{
               display: "flex",
@@ -140,7 +164,6 @@ export const WebHeader: React.FC = () => {
           </Box>
           <Divider sx={{ bgcolor: "rgba(0,0,0,0.1)" }} />
 
-          {/* Navigation Items */}
           <List sx={{ flexGrow: 1 }}>
             {navItems.map((text) => (
               <ListItem key={text} disablePadding>
@@ -161,7 +184,6 @@ export const WebHeader: React.FC = () => {
             ))}
           </List>
 
-          {/* Login Button at Bottom */}
           <Box sx={{ p: 2 }}>
             <Button
               variant="contained"

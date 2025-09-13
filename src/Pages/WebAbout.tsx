@@ -41,7 +41,7 @@ export const WebAbout: React.FC = () => {
             mb: { xs: 2, md: 0 },
           }}
         >
-          About Our Company
+          Get to Know Us
         </Button>
         <Box sx={{ maxWidth: { xs: "100%", md: "50%" } }}>
           <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>
