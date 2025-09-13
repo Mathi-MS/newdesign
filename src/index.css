@@ -76,24 +76,6 @@ body .MuiButtonBase-root {
   --error: #d32f2f;
 }
 
-:root[data-theme="dark"] {
-  --background: #0b0e14;
-  --white: #0f1115; /* surface */
-  --light: #111318;
-  --dark: #e5e7eb;
-  --text-primary: #e5e7eb;
-  --text-secondary: #9ca3af;
-  --text-light: #6b7280;
-  --border-color: rgba(255, 255, 255, 0.12);
-  --customIcon: #9ca3af;
-  --title: #e5e7eb;
-  --titleSec: #9ca3af;
-  --titleThird: #9ca3af;
-  --secondary: rgba(255, 255, 255, 0.06);
-  --box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 20px;
-  --avatar-bg: #1f2937;
-  --avatar-fg: #e5e7eb;
-}
 /* Scroll Bar Color Change */
 ::-webkit-scrollbar {
   width: 5px;
